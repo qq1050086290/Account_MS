@@ -17,6 +17,7 @@ public class In_account_J {
         this.id = id;
         this.money = money;
         this.date = date;
+        this.type  =type;
         this.handler = handler;
         this.mark = mark;
     }
@@ -26,14 +27,19 @@ public class In_account_J {
         return  id;
     }
 
-    //获取用户ID
+    //获取金额
     public double getMoney(){
         return  money;
     }
 
-    //获取金额
+    //获取时间
     public String getDate(){
         return  date;
+    }
+
+    //获取类别
+    public String getType(){
+        return  type;
     }
 
     //获取付款方
@@ -59,6 +65,11 @@ public class In_account_J {
     //设置时间
     public void setDate(String date){
         this.date = date;
+    }
+
+    //设置类别
+    public void setType(String type){
+        this.type = type;
     }
 
     //设置付款方
