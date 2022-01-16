@@ -1,17 +1,17 @@
 package com.example.account_ms.activity;
 
-public class Out_account {
+public class Out_account_J {
     private int id;
     private double money;
     private String date;
     private String type;
     private String handler;
     private String mark;
-    public Out_account(){
+    public Out_account_J(){
         super();
     }
 
-    public Out_account(int id, double money, String date, String type, String handler, String mark){
+    public Out_account_J(int id, double money, String date, String type, String handler, String mark){
         super();
         this.id = id;
         this.money = money;

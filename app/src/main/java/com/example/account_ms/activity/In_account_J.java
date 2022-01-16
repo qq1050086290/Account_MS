@@ -1,18 +1,18 @@
 package com.example.account_ms.activity;
 
 
-public class In_account {
+public class In_account_J {
     private int id;
     private double money;
     private String date;
     private String type;
     private String handler;
     private String mark;
-    public In_account(){
+    public In_account_J(){
         super();
     }
 
-    public In_account(int id, double money, String date, String type, String handler, String mark){
+    public In_account_J(int id, double money, String date, String type, String handler, String mark){
         super();
         this.id = id;
         this.money = money;
