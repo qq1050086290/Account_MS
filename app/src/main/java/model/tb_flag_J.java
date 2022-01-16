@@ -1,32 +1,32 @@
-package com.example.account_ms.activity;
+package model;
 
 public class tb_flag_J {
     private int id;
-    private String mark;
+    private String flag;
 
     public tb_flag_J(){
         super();
     }
 
-    public tb_flag_J(int id, String mark){
+    public tb_flag_J(int id, String flag){
         super();
         this.id = id;
-        this.mark = mark;
+        this.flag = flag;
     }
 
     public void setId(int id){
         this.id = id;
     }
 
-    public void setMark(String mark){
-        this.mark = mark;
+    public void setFlag(String flag){
+        this.flag = flag;
     }
 
     public int getId(){
         return id;
     }
 
-    public String getMark(){
-        return mark;
+    public String getFlag(){
+        return flag;
     }
 }

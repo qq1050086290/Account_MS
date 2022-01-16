@@ -1,4 +1,4 @@
-package com.example.account_ms.activity;
+package model;
 
 public class tb_password_J {
     private String password;

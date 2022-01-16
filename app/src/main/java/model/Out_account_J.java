@@ -1,18 +1,17 @@
-package com.example.account_ms.activity;
+package model;
 
-
-public class In_account_J {
+public class Out_account_J {
     private int id;
     private double money;
     private String date;
     private String type;
     private String handler;
     private String mark;
-    public In_account_J(){
+    public Out_account_J(){
         super();
     }
 
-    public In_account_J(int id, double money, String date, String type, String handler, String mark){
+    public Out_account_J(int id, double money, String date, String type, String handler, String mark){
         super();
         this.id = id;
         this.money = money;
