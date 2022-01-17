@@ -1,10 +1,14 @@
 package common_db;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import androidx.constraintlayout.solver.state.State;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import model.In_account_J;
 
@@ -55,6 +59,7 @@ public class In_account_db {
      * 查找收入信息
      * @param id
      */
+    @SuppressLint("Range")
     public In_account_J find(int id){
         db = helper.getWritableDatabase();  //初始化SQLiteDatabase对象
         //对数据库新型行检索
@@ -90,6 +95,46 @@ public class In_account_db {
             sb.deleteCharAt(sb.length() - 1);  //去掉最后一个','字符
             db = helper.getWritableDatabase();  //初始化SQLiteDatabase对象
             db.execSQL("delete from tb_in_account where id in ("+sb+")", (Object[]) ids);
+        }
+    }
+
+    /**
+     * @param start 起始位置
+     * @param count 每页显示数量
+     * @return
+     */
+    @SuppressLint("Range")
+    public List<In_account_J> getScrollData(int start, int count){
+        List<In_account_J> tb_inaccount = new ArrayList<In_account_J>(); //创建集合对象
+        db = helper.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from tb_in_account limit ?,?", new String[]{
+                String.valueOf(start),String.valueOf(count)
+        });
+
+        while(cursor.moveToNext()){
+            tb_inaccount.add(
+                    new In_account_J(
+                            cursor.getInt(cursor.getColumnIndex("id")),
+                            cursor.getDouble(cursor.getColumnIndex("money")),
+                            cursor.getString(cursor.getColumnIndex("date")),
+                            cursor.getString(cursor.getColumnIndex("type")),
+                            cursor.getString(cursor.getColumnIndex("handler")),
+                            cursor.getString(cursor.getColumnIndex("mark"))));
+        }
+
+        return tb_inaccount;
+    }
+
+    /**
+     * @return
+     */
+    public long getCount(){
+        db = helper.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select count(id) from tb_in_account", null);
+        if (cursor.moveToNext()){
+            return cursor.getLong(0);
+        } else {
+            return 0;
         }
     }
 }
